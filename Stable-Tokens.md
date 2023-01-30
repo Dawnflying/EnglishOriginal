@@ -1,0 +1,180 @@
+> _Stability of value is one of the most important functions of money so it can fulfill its purpose as a unit of account. Stable tokens are designed to represent a store of value, medium of exchange, and unit of account that has a stable value against another currency or commodity, and could resolve a major bottleneck to mass adoption of tokens as a medium of exchange._
+
+_Disclaimer: A few of the below mentioned stable-token examples like “Tether” and “DAI” are subject to frequent updates or current events. Certain details mentioned in the following chapter might therefore be out of date by the time of reading this book. The content of this chapter is structured in a way that it paints the big picture of the complexities of designing stable tokens independent of future changes._
+
+Short-term stability of value is one of the most important functions of money so it can serve as a unit of account. Stability is a fundamental criteria for meaningful economic planning for all actors in an economy. In order for a token to serve as a means of payment, store of value, or unit of account, the token needs a relatively stable value, so that the price we pay for goods and services can be reliably planned. Otherwise, it is just an object of speculation. While the Bitcoin protocol introduced a groundbreaking consensus algorithm, it comes with a rudimentary monetary policy that simply regulates and limits the amount of tokens minted over time. The protocol does not provide a sophisticated economic algorithm that regulates price stability. As a result, Bitcoin and similar protocol tokens are subject to price volatility, which makes them an object of speculation rather than a means of day-to-day payment. From a monetary policy point of view, Bitcoin does not live up to its own value proposition stated in the white paper, as it cannot serve as electronic cash, which is why it is referred to by many as “electronic gold.” 
+
+Just as developing a secure consensus algorithm required decades of research and development, an equivalent amount of academic rigor would be needed to develop a resilient “monetary policy” in P2P electronic cash protocols. Token price also needs to be stable and resilient, hence attack resistant. However, there is no need to reinvent the wheel. Governments have been using macroeconomic models to stabilize national currencies with measures like currency intervention. There is much one can learn from this, both the dos and the don’ts. However, history has shown that protecting currency stability from outside attacks is not easy to achieve. In 1992, for example, George Soros hacked the stability mechanism of the Bank of England, successfully manipulating the foreign exchange price of the British pound, in an event that is now referred to as “Black Wednesday” and ended up costing the UK more than three billion pounds at the time.
+
+State-of-the-art protocol tokens are currently impractical for day-to-day payments (at least in countries with stable inflation rates) and only attractive to speculators or long-time investors. Token values are volatile for several reasons: (i) a static monetary policy as a result of a token supply that does not adjust to price levels, (ii) shifting public perception about the value of the token, (iii) the fact that they represent assets in an emerging market that most people don’t understand, and potentially also (iv) market reaction to regulatory uncertainty. Without a stable medium of exchange, no party to a smart contract can rely on the price denominated of a certain token. This lack of price stability has led to the emergence of stable tokens over the last few years. 
+
+Stable tokens are emerging as an indispensable building block for a tokenized economy. Businesses and individuals are not likely to accept tokens as a method of payment if their value can drop within a short amount of time. Salaries, investments, and household expenses such as rent, utility payments, and groceries cannot be reliably denominated or planned for with an unstable medium of exchange. Without stability mechanisms, smart contracts and decentralized applications will stay a fringe phenomena, as they would pose a high risk for both parties to a smart contract, the buyer and the seller.  Over the years, various attempts have been made to achieve token stability: (i) fiat-collateralized or commodity-collateralized stable tokens, (ii) crypto-collateralized stable tokens, and (iii) algorithmic stable tokens, like seigniorage shares. Lately (iv) central banks have started looking into tokenizing their currencies, as these already come with inbuilt price stability mechanisms.
+
+
+## Asset-Collateralized Stable Tokens
+
+A simple way to achieve a stable token is to back them with off-chain assets that have stable or relatively stable prices, such as fiat currency or a commodity like gold or diamonds.[ “Tether](https://tether.to/)” and[ “TrueUSD](https://www.trusttoken.com/trueusd/)” are tokens backed by the US Dollar.[ “Digix Gold](https://digix.global/)” is an example of a token that is backed by gold. Alternatively, a basket of commodities or fiat currencies can be used to back the token. While asset-backed stable tokens are relatively easy to achieve, they have a centralization problem. This is also why some refer to them as “centralized” stable tokens. One single company manages the assets that guarantee coverage of the tokens, usually in a bank account or secure vault. Trust is outsourced to a single entity, which guarantees that the amount of tokens issued corresponds to the amount held in a secure vault, making the system subject to counterparty risk. This might change when hardware and software oracles are programmed to feed the token contracts with data from IoT devices, like video cameras monitoring the vaults. Current solutions, however, rely on trusting a centralized service provider and a handful of auditors to guarantee that the backing of assets is not tampered with. Furthermore, costs and processes are often opaque and can involve higher fees and delays.
+
+[Tether (USDT)](https://tether.to/) is one of the more senior and popular stable tokens. It has a one-to-one peg against the USD, which means that for every USDT in circulation, one USD is allegedly added to a centrally managed savings account as collateral. Supposedly, there is a bank account that holds over two billion USD, which represents the current valuation of USDT. However, Tether is managed by a private company, and has so far not seen a complete audit process. Some people doubt that Tether is fully collateralized, and US authorities are investigating the case. They changed their terms, admitting that some of their reserves might be loans to other entities, for example, token exchanges like Bitfinex. Their general counsels have furthermore admitted that only 74 percent of USDT is backed by cash and cash equivalents. This could be critical, as USDT is one of the top traded tokens. A significant amount of BTC trading results from Tether. As a result, many are worried that if allegations are true, fake Tethers could be used to buy BTC, driving up the market price and resulting in market manipulation. If there are serious doubts about the backing of Tether, the price system might collapse, and if it does, it might affect the BTC as well.
+
+[TrueUSD (TUSD)](https://www.circle.com/en/usdc) is a similar stable token to Tether, but appears much more trustworthy. So far, they have regularly published independent audits to verify their claims of the funds they hold.
+
+[Circle (USDC)](https://www.circle.com/en/usdc) is an ERC-20 token that allows one to wire transfer USD in exchange for USDC tokens. This serves as an on-ramp and off-ramp between the USD and Ethereum ecosystems.
+
+[Digix Gold Token (DGX)](https://digix.global/) is a stable token pegged to gold. It has been live since 2018. The gold is secured in a vault managed by a custodian company in Singapore. DGX token holders pay a management fee to cover the costs of securely storing the gold. As opposed to Tether, DGX is subject to regular independent auditors and seems more trustworthy. In this auditing process, custodians and auditors time-stamp the reports on Ethereum's ledger to provide publicly verifiable evidence that the gold is really where it is supposed to be. First, the scans of the paperwork are uploaded to[ IPFS](https://medium.com/@ipfs), a decentralized file storage network, and the hashes of these scans are recorded on the Ethereum  network, creating an on-chain audit trail. In their white paper, Digix describes a[ Proof-of-Provenance protocol](https://digix.global/whitepaper.pdf) for the verification of real-world assets. The same protocol could be applied to other assets, such as art, silver, platinum, diamonds, real estate, etc. The governance mechanism behind Digix is organized as a DAO (decentralized autonomous organization). This DAO comes with a separate token, the DigixDAO token (DGD), which grants voting rights for the governance of Digix. Managerial questions around the governance of the DGX token are therefore decentralized and performed by DigixDAO.
+
+[Globcoin](https://globcoin.io/) is a stable token initiative backed by currencies of the fifteen largest economies in addition to gold.[ ](https://www.aaareserve.com/)
+
+[AAA Reserve](https://www.aaareserve.com/) is  backed by a basket of national currencies, AAA-rated credit investments, and government-backed bonds.
+
+[Libra](https://libra.org/) is being developed as a stable token for cross-border online payments. The Libra consortium, spearheaded by Facebook, will be operating its own distributed ledger. According to their white paper, they are planning to back the token with a basket of currencies and other assets (read more annex: Libra - Facebook's move into the Web3)
+
+
+## Crypto-Collateralized Stable Tokens
+
+One way to mitigate the centralization problem is to back the stable tokens with a native blockchain token such as BTC or ETH, which is why these stable tokens are sometimes also referred to as “decentralized stable tokens.” In such a setup, the stable token is collateralized with BTC or ETH. The collateral token (BTC or ETH) is managed entirely on-chain by a smart contract, instead of a third party. The public and verifiable nature of native blockchain tokens makes the system more trustworthy. The risk of under-collateralization can be mitigated. BitUSD introduced this model in 2013, and inspired many other projects, such as[ “MakerDAO](https://makerdao.com/)” (DAI),[ “Sweetbridge](https://sweetbridge.com/),”[ “Augmint](https://www.augmint.cc/),” and “Synthetix” (formerly[ Havven](https://havven.io/)), to use variations of this mechanism. Other variations of crypto-collateralized stable tokens are:[ “Reserve](https://reserve.org/),”[ “StatiCoin](http://www.staticoin.com/),”[ “Alchemint](https://medium.com/@AlchemintIO),”[ “Boreal](https://auroradao.com/platform/boreal/),”[ “Celo](https://celo.org/technology),” and[ “Unum](https://unum.one/).”
+
+DAI is a stable token operated by MakerDAO. The price is pegged 1:1 to the USD. DAI is backed by ETH (and recently also some other tokens) that can be collateralized in a smart contract. It is considered the most promising crypto-collateralized stable token project. ETH token holders can deposit their tokens in a smart contract to generate DAI tokens. The smart contract locks the deposited ETH until the DAI tokens are paid back. The collateral token (ETH) is automatically released by the smart contract when all debts (DAI tokens) are paid back. Collateralizing ETH against DAI results in a debt position for DAI token holders, which is why the smart contract is referred to as a “collateralized debt position” (CDP). 
+
+Crypto-collateralized stable tokens are prone to the volatility of the underlying token used as collateral. This volatility makes it harder for the 1:1 peg of DAI to USD to be maintained. This is why DAI uses a 150 percent collateral-to-debt ratio. Other stable tokens might use even higher ratios. This means that if the ETH price crashes, and when the individual CDP drops below 150, the smart contract will auto-liquidate the collateral token. DAI tokens are locked by the smart contract if the value of ETH falls below this threshold, and the smart contract sells the ETH to offset the risk of non-payment. A significant price crash of the collateral token below the peg could make DAI token holders lose capital.<sup> </sup>If the value of the collateral asset (ETH) drops too quickly, the stable tokens (DAI) issued could become undercollateralized. DAI has more complex mechanisms in place to protect against price fluctuations. Details of this process are beyond the scope of this book, but can be studied reading the white paper and Web documentation of the project website. 
+
+Many economists claim that if price volatility of the underlying asset is too high, crypto-collateralized solutions are susceptible to black swan events. DAI can end up undercollateralized if a crash is rapid enough that the system is unable to close enough CDPs, and buy back their DAI, before overall system collateralization drops below 100 percent. Another challenge is the lack of oracles with reliable price-feeds about asset prices across exchanges. Currently, a patchwork of centralized solutions are used, but they are prone to manipulation and attack. 
+
+Initially, DAI only supported one type of collateral (ETH), but since 2019, it also supports any number of assets as a basket of collaterals, to mitigate the volatility risks associated with a single asset. The current list of accepted collaterals is: Augur (REP), Basic Attention Token (BAT), DigixDAO (DGD), Ether (ETH), Golem (GNT), OmiseGo (OMG), and 0x (ZRX). The project also launched the Dai Savings Rate (DSR), an additional service that makes it possible to earn savings simply by holding Dai. 
+
+
+## Central Bank Digital Currencies
+
+While the crypto community has been experimenting with various privately initiated stable token solutions, central banks have also started to look into tokenizing their own currencies, which already come with inbuilt stability mechanisms. Such a central bank token, referred to as Central Bank Digital Currency (CBDC), acts as a tokenized representation of a country’s fiat currency. The stability mechanisms are provided by established players like central banks in collaboration with the fiscal and monetary policy of a national government. The tokens would be part of the base money supply, together with other forms of money: cash and other cash equivalents (M0 & M1), short-term deposits (M2), and long-term deposits (M3). CBDCs could be used for the settlement of smart contracts, since their tokenized equivalent can be managed by an underlying distributed ledger. 
+
+Some economists believe that CBDCs compete with commercial bank deposits and reduce the cost of managing the local and international payment system. Currently, the cost of managing cash supply of a country is high, as are cross-border transactions. In the long run, CBDCs could eliminate the need for classic bank accounts, replacing them with easy to download mobile crypto wallets, and potentially increase inclusion of the underbanked. However, such disintermediation of commercial banks and of cross-border payments could also destabilize the credit systems and foreign exchange markets, at least in the short term. CBDCs could furthermore challenge the practice of fractional reserve banking[^1] and eliminate the need for deposit guarantees. Issuing central bank money directly to the public could also provide a new channel for monetary policy execution. This would allow for direct control of the money supply and could complement or substitute indirect tools such as interest rates or quantitative easing.[^2] Some economists even think that CBDC could be a method to achieve a full reserve banking system.[^3] 
+
+According to a study conducted by the Bank of International Settlement, many governments are thinking of tokenizing their currency or have already started to do so to various degrees (around 80 percent), such as the Bank of England, Central Bank of Sweden, Central Bank of Uruguay, Marshall Islands, China, Iran, Switzerland, and the European Central Bank. It is, therefore, quite likely that within the next three to five years, many central bank–issued currencies will have a tokenized equivalent. “Synthetic CBDCs” (sCBDC) is an alternative concept whereby private institutions issue tokens fully backed with central bank reserves. The question is whether CBDCs and sCBDCs might render private stable token efforts obsolete, or if they will become just some of many other tokens in this new tokenized economy ahead of us. 
+
+
+## Algorithmic Stable Tokens
+
+Stable tokens that are pegged to assets using legacy financial services might seem simple and obvious at first sight, but could also be perceived as somewhat contrary to the spirit of the underlying decentralized technology. This is similar to how Yahoo and many other search engines of the early 1990s tried to make Internet content available by cataloging websites, just as you would catalogue books or magazines in the library. While these search engines were popular and intuitive in the early days of the Internet, they were not scalable at all, nor did they reflect the potential of the underlying technology. Eventually, algorithmic search, as offered by Google and other companies, replaced manually cataloguing content. Similarly, asset-backed stable tokens might seem tempting at first, but some interesting algorithmic solutions are on the rise that might do more justice to the nature of smart contracts.
+
+“Seigniorage[^4] Shares” is a concept for an algorithmic stable token that was first proposed by Robert Sams in 2014. In his white paper, he outlined how one can use smart contracts to fulfill the role of a central bank to formalize monetary policy mechanisms so the token trades at a stable price. Elastic supply mechanisms can be designed to either stimulate expansion or contraction of the token supply, similar to how central banks control the supply of fiat currencies. If the demand for stable tokens rises or falls, the algorithm automatically adjusts to keep a stable price. If the price is too high, the mechanism will increase the supply. If the price is too low, tokens need to be “frozen,” in one way or another. The question of how to increase and decrease token supply in an attack-resistant and resilient way has not been conclusively resolved. Depending on the project, different algorithmic methods are used for expansion and contraction. Examples of algorithmic stable tokens are: [Ampleforth](https://www.ampleforth.org/) (formerly Fragments), [Carbon](https://www.carbon.money/), [Kowala](https://kowala.tech/), [BitBay Official](https://medium.com/@bitbay), [SteemDollar](http://steemdollar.com/), [Corion](https://www.corion.io/), [Topl](https://topl.co/), [Stable](https://stable.foundation/), [StableUnit](https://stableunit.org/), and [TerraMoney](https://terra.money/).
+
+For example, if a stable token with a 1:1 peg to the EUR is traded above 1 EUR, it would indicate that supply is higher than demand. Token supply needs to be increased to stabilize the price back to 1 EUR. The smart contract is programmed to mint new tokens (seigniorage shares) and sell them on the open market, thereby increasing the supply until the price returns to a stable level. If the value is traded below a price of 1 EUR, the token supply must be contracted. The smart contract can’t just destroy circulating tokens that belong to someone. The smart contract, however, could be designed to buy tokens on the open market to reduce the circulating supply, and increase the price. While token supply can be easily expanded by issuing new tokens, contracting token supply requires more sophisticated mechanisms. Why should token holders agree to sell tokens, and how can they be meaningfully incentivized to do so? If the smart contract does not have enough newly minted tokens, it could issue bonds in exchange for a stable token in proportion to the tokens that need to be destroyed. These bonds are sold at a discount and can be paid out at a future date, with the bond holders being the first to be paid out. The discount serves as an incentive for holders to remove their stable tokens from circulation. 
+
+While the idea of using smart contracts to replace certain functions of a central bank is intriguing, some mechanisms rely on partially unproven economic assumptions and untested monetary policies, especially around incentive design for contracting cycles. In some cases, stabilization is still partially maintained via centralized mechanisms. Furthermore, the challenge of decentralized and trustless price oracles[^5] has to be resolved. Many economists therefore believe algorithmic stable tokens cannot work, as this method assumes unlimited growth of the system. Each contraction cycle initiates the potential for a future increase in the total supply of the stable token, which could lead to a death spiral in the price of bonds, increase the time to payout, and decrease the odds that each bond is paid. This could lead to a recursive feedback loop, which could undermine the aim of supply contraction on a large scale unless other measures are taken to prevent such a loop. As a solution to this problem, some projects allow token holders to temporarily freeze tokens; others projects issue bonds that expire after a certain time.
+
+
+## Challenges & Outlook
+
+While many stable token projects attempt to achieve token stability, no clear best practices have been established yet (other than potential CBDCs). The emergence of stable tokens is a relatively new phenomenon, and many proposals outlined in white papers are not even implemented yet or are highly experimental, especially the crypto-collateralized and algorithmic methods. Only a few projects are live, most of which suffer from price volatility. For those projects that are still in the white paper stage, it is hard to tell if and when they will be successful or fully operational. Current adoption of stable tokens shows that Tether and similar fiat-collateralized or commodity-collateralized tokens are leading the field in terms of market capitalization. DAI (MakerDAO) and other crypto-collateralized projects seem to be the most promising alternatives. However, they still have many shortcomings, potentially more at larger scales, such as facing the robustness of their mechanisms in the case of a black swan event.
+
+All stable tokens, even the more decentralized ones, are in some way pegged to another underlying asset in a 1:1 ratio. Depending on market dynamics, the pegging ratio could be volatile. Once economies develop around the stable token, creating certain network effects, the peg might start to matter less. This could be the case if businesses are willing to accept a stable token, which is also accepted by other businesses. Maintaining a perfect peg becomes less important as the token becomes a widely accepted medium of exchange.
+
+Furthermore, any stable token implementation needs to address the oracle problem. If the token is pegged to the value of an asset, the system needs a decentralized way to receive data about the exchange rate between the stable token and the asset that it is pegged to. However, none of the existing solutions are fully decentralized or fully reliable yet.
+
+Stable tokens always face “the impossible trinity” conventional currencies are also confronted with, the trade-off between (i) autonomous monetary policy, (ii) exchange rate stability, and (iii) capital mobility. As capital mobility is a given in the context of a cryptographic token, and exchange rate stability needs to be achieved, one has to give up autonomous monetary policy (see Tether). Economists argue that token systems with more autonomous token supply rules will never have stable exchange rates vis á vis conventional currencies. One may put this verdict into perspective, however, if one considers a crypto token not as a competitor to a conventional currency but rather as a new, alternative asset. Nobody would come up with the idea that conventional assets such as stock have to be stable in value, nor has this lack of stability hindered their widespread adoption.
+
+Last but not least, it is important to point out that stable tokens may not be the only solution to token price volatility. Insurances or financial derivatives could provide alternatives or at least complementary methods to mitigating price volatility. Hedging is an investment strategy that can be used to reduce financial risk, balancing positions in the market to protect against price volatilities. A combination of DeFi applications could be used to create such P2P derivative and hedging solutions (read more: Part 3 - Decentralized Lending).
+
+Successful stable token solutions could resolve the bottleneck of using tokens as a unit of account, and therefore as a medium of day-to-day exchange. It is a major catalyst for decentralized applications and a fluid token economy. However, stability is only one of many challenges to make tokens a medium of exchange for day-to-day payments. Without privacy, no token will be fungible, and without scalability and better wallet usability, businesses as well as consumers will not adopt this new technology.
+
+
+***
+### Chapter Summary
+
+> Stability of value is one of the most important functions of money to serve as a unit of account. The aim of stable tokens is to provide a stable value against the price of another asset.
+
+> Bitcoin’s protocol introduced a groundbreaking consensus algorithm, but the protocol defines only a rudimentary monetary policy that simply regulates and limits the amount of tokens minted over time. The protocol does not provide price stability.~
+> State-of-the-art protocol tokens are impractical for day-to-day payments. Without a stable medium of exchange, no party to a smart contract can rely on the price denominated of a certain token. This lack of price stability has led to the emergence of stable tokens over the last few years. 
+
+> Just as developing a secure consensus algorithm required decades of research and development, an equivalent amount of academic rigor is required to develop monetary policy aspects of tokens. There is a lot one can learn from macroeconomics and decades of experience with monetary policies set by governments and central banks trying to achieve currency stability, both the dos and the don’ts.
+
+> Types of stable tokens: (i) asset-backed stable tokens; (ii) collateralized stable tokens; (iii) Central Bank Digital Currencies, and (iv) algorithmic stable tokens.
+
+> Stable tokens are indispensable building blocks for a thriving token economy; otherwise, smart contracts and decentralized applications will stay a fringe phenomena, as they pose a high risk for both parties to a smart contract, the buyer and the seller.
+
+> Businesses are not likely to accept tokens on a large scale if their value can drastically drop within a short amount of time, or if there are no other ways to mitigate this risk.
+
+> Stable tokens may not be the only solution to token price volatility. Insurances or financial derivatives could provide alternatives or at least complementary methods to mitigating price volatility. Hedging is an investment strategy that can be used to reduce financial risk, balancing positions in the market to protect against price volatilities. A combination of DeFi applications could be used to create such P2P derivative and hedging solutions.
+
+***
+### Chapter References & Further Reading
+* Bech, M; Garratt, R.: “Central bank cryptocurrencies”, BIS Quarterly Review, September, pp 55–70, 2017
+* Bergmann, C.: “Bitcoin Blog”, January 31, 2018: https://bitcoinblog.de/2018/01/31/bitfinex-und-tether-bekommen-vorladung-von-us-regulierern/
+* Bryne, Preston: “Stablecoins are doomed to fail, Part II: MakerDAO’s “DAI” stablecoin is breaking, as predicted”, January 11, 2018: https://prestonbyrne.com/2018/01/11/epicaricacy/
+* Boar, Codruta; Holden, Henry; Wadsworth, Amber: “Impending arrival – a sequel to the survey on central bank digital currency,”BIS Papers No 107, Monetary and Economic Department January 2020, rerieved from: https://www.bis.org/publ/bppdf/bispap107.pdf
+* Buterin, Vitalik: “SchellingCoin: A Minimal-Trust Universal Data Feed”, March 28, 2014 https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/
+* Buterin, Vitalik: “The Search for a Stable Cryptocurrency”, November 11, 2014: https://blog.ethereum.org/2014/11/11/search-stable-cryptocurrency/
+* Chohan, Usman W.: “Are Stable Coins Stable?”, UNSW Business School; Critical Blockchain Research Initiative (CBRI), Discussion Paper Discussion Paper Series: Notes on the 21st Century, January 24, 2019: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3326823
+* De, Nikhilesh: “Tether Lawyer Admits Stablecoin Now 74% Backed by Cash and Equivalents”, Apr 30, 2019: https://coindesk.com/tether-lawyer-confirms-stablecoin-74-percent-backed-by-cash-and-equivalents
+* Hochstein, Marc: “Tether Review Claims Crypto Asset Fully Backed – But There’s a Catch”, June 20, 2018: https://coindesk.com/tether-review-claims-crypto-asset-fully-backed-theres-catch
+* Jenkinson, Gareth: “Changes to Tether’s Terms of Reserves Raises Fresh Concerns”, March 24, 2019: https://cointelegraph.com/news/changes-to-tethers-terms-of-reserves-raises-fresh-concerns
+* Lee, Sherman: “Explaining Stable Coins”, March 12, 2018: https://www.forbes.com/sites/shermanlee/2018/03/12/explaining-stable-coins-the-holy-grail-of-crytpocurrency/#498839354fc6
+* Mulder, Ronald: “Why “stablecoins” make no sense” Feb 26, 2018: https://medium.com/@ronaldmulder/why-stablecoins-make-no-sense-999490b08910
+* N.N.: „Central Bank Digital Currencies“, Bank for International Settlements, March 2018: https://bis.org/cpmi/publ/d174.pdf
+* N.N.: “The Dai Stablecoin System Whitepaper”, Maker Team, https://makerdao.com/whitepaper/DaiDec17WP.pdf
+* N.N.: “blockchain.info”, Retrieved, 10. Sept 2018: https://blockchain.info/block-index/14849
+* N.N.: “OFFSHORE LEAKS DATABASE” The International Consortium of Investigative Journalists, https://offshoreleaks.icij.org/nodes/82024464
+* N.N.: “A brief history of Stablecoins Part 1”, Bitmex Research, July 8, 2018: https://blog.bitmex.com/a-brief-history-of-stablecoins-part-1/
+* N.N.: "Stablecoins - everything you need to know", Cryptoinsider: https://archive.21mil.com/stablecoins-everything-need-know/
+* Orcutt, Mike: “Connectivity “Stablecoins” are trending, but they may ignore basic economics Pegging cryptocurrencies to “real” money could stabilize them—or ruin them entirely”, June 7, 2018: https://technologyreview.com/s/611370/stablecoins-are-trending-but-they-may-ignore-basic-economics/
+* Orlicki, Jose I.: “A Stable Coin with Pro-rated Rebasement and Price Manipulation Protection”, Cornell University, arXiv:1708.00157, Computer Science, Cryptography and Security, August 1 2017: https://arxiv.org/abs/1708.00157
+* Peng, Ting: “Turning A Crisis Into An Opportunity, China Gets One Step Closer to CBDC, “ March 20, 2020, rereived from: https://cointelegraph.com/news/turning-a-crisis-into-an-opportunity-china-getting-one-step-closer-to-cbdc
+* Purdy, Jack: "Maker (MKR) - Investment Thesis Fundamental Analysis and Valuation", Coinmonks: Dec 18, 2018: https://medium.com/coinmonks/cryptoasset-research-maker-mkr-a0e89fccb985
+* Qureshi, Haseeb: “Stablecoins: designing a price-stable cryptocurrency”, February 19, 2018: https://hackernoon.com/stablecoins-designing-a-price-stable-cryptocurrency-6bf24e2689e5
+* Ronald J. Balvers; McDonald, Bill; “Designing a Global Digital Currency”, Oct 9 2017: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3049000
+* Sams, Robert: “A Note on Cryptocurrency Stabilisation: Seigniorage Shares”, October 24, 2014: https://github.com/rmsams/stablecoins/blob/master/paper.pdf
+* Sexer, Nathan: ”State of Stablecoins”, Consensys, Jul 24, 2018: https://media.consensys.net/the-state-of-stablecoins-2018-79ccb9988e63
+* T., Alex: “The Rise Of Stablecoins”, April 8, 2018: https://coinjournal.net/the-rise-of-stablecoins/
+* Snider, Myles: “An Overview of Stablecoins”, January 17, 2018: https://multicoin.capital/2018/01/17/an-overview-of-stablecoins/
+* Willemse, Linda: “The Future of Central Bank Digital Currency (CBDC)”, Feb 27 2019: https://hackernoon.com/the-future-of-central-bank-digital-currency-cbdc-64797b645887
+* Willemse, Linda: “CBDC: 19 Countries Creating or Researching the Issuance of a Digital Decentralized Currency”, Feb 12 2019: https://hackernoon.com/cbcd-19-countries-creating-or-researching-the-issuance-of-a-digital-decentralized-currency-b57a609e695b
+* Wikipedia contributors, "Central bank digital currency," Wikipedia, The Free Encyclopedia, https://en.wikipedia.org/wiki/Central_bank_digital_currency (accessed April 30, 2019).
+* Wikipedia contributors, "Seigniorage," Wikipedia, The Free Encyclopedia, https://en.wikipedia.org/wiki/Seigniorage (accessed February 20, 2019).
+* Zhang, Tao: “ Central Bank Digital Currency,” Keynote Address,  March 19, 2020, retrieved from: https://www.imf.org/en/News/Articles/2020/03/19/sp031920-deputy-managing-director-tao-zhangs-keynote-address-on-central-bank-digital-currency
+* Alchemint: https://medium.com/@AlchemintIO
+* Ampleforth: https://ampleforth.org/
+* Augmint: https://augmint.cc/
+* BitBay Official: https://medium.com/@bitbay
+* Boreal: https://auroradao.com/platform/boreal/
+* Carbon: https://.carbon.money/
+* Celo: https://celo.org/technology
+* Circle: https://circle.com/en/usdc
+* Corion: https://corion.io/
+* Digix Gold Token: https://digix.global/
+* Havven: https://havven.io/
+* Kowala: https://kowala.tech/
+* NuBits: https://nubits.com/
+* Maker (DAI): https://makerdao.com/
+* Reserve: https://reserve.org/
+* StatiCoin: http://www.staticoin.com/
+* Sweetbridge: https://sweetbridge.com/
+* Stable: https://stable.foundation/
+* StableUnit: https://stableunit.org/
+* Stablecoins index website: https://stablecoinindex.com/
+* Stablecoins index repo: https://github.com/sdtsui/awesome-stablecoins
+* SteemDollar: http://steemdollar.com/
+* TerraMoney: https://terra.money/
+* Tether: https://tether.to/
+* Topl: https://topl.co/
+* TrueUSD: https://www.trusttoken.com/trueusd
+* Unum: https://unum.one/
+
+
+***
+
+### Footnotes
+
+[^1]:
+A banking system in which only a fraction of bank deposits are backed by actual cash that is available for withdrawal is referred to as fractional reserve banking. While banks are required to keep a certain amount of the cash that depositors give them, they are not required to keep the entire amount. They are only required to keep 10% of the deposit as “reserves.” This system frees capital for lending, and is used as an expansionary economic policy tool.
+
+[^2]:
+Quantitative easing is a monetary policy intervention mechanism in which a central bank purchases securities from the market in order to provide banks with more liquidity, encourage investment, and increase the money supply with newly created bank reserves. This is a rather unconventional method which is used when interest rates are already near zero percent.
+
+[^3]:
+Full-reserve banking is a banking system where banks have to store the full amount of each depositor's funds in cash, so it can be withdrawn by the depositor at any point in time. Funds would not be lent to someone else.
+
+[^4]:
+ Seigniorage is a form of inflation tax, returning resources to the currency issuer, and can be a source of revenue for a government. It derives from the difference of the cost to produce and distribute money and the value of it. 
+
+[^5]:
+An oracle is data fed into a smart contract. Read more in Part 2 - Smart Contracts.
